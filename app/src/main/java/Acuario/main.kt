@@ -1,3 +1,19 @@
+import acuario.*
+import android.os.Build
+import androidx.annotation.RequiresApi
+import java.io.PrintStream
+import java.nio.charset.StandardCharsets
+
+fun crearPeces() {
+    val tiburon = Tiburon()
+    val pezPayaso = PezPayaso()
+
+    println("El Tiburón es de color: ${tiburon.color}")
+    tiburon.comer()
+
+    println("El Pez Payaso es de color: ${pezPayaso.color}")
+    pezPayaso.comer()
+}
 fun construirAcuario() {
     // 1. Llama al constructor secundario con 29 peces.
 
@@ -29,7 +45,10 @@ fun construirAcuario() {
 
 }
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 fun main() {
+    System.setOut(PrintStream(System.out, true, StandardCharsets.UTF_8))
     construirAcuario()
+    crearPeces()
 }
 
